@@ -4763,13 +4763,13 @@ MonoBehaviour:
   health: 75
   leg: 3
   age: 12
+  size: 3.5
+  weight: 325
   domesticate: 1
   tail: 1
   pointyEars: 0
   longHair: 0
   claw: 1
-  size: 3.5
-  weight: 325
   agility: 37.5
   furColor: Orange
   banded: 1
@@ -5081,6 +5081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  jumpHeight: 2
 --- !u!1 &1059209960
 GameObject:
   m_ObjectHideFlags: 0
