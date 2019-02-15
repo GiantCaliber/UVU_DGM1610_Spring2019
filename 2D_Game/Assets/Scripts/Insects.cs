@@ -9,6 +9,7 @@ public class Insects : Animal {
     public bool harmful;
     public int wings;
     public int lifeStage;
-    public int legs = 6;
+    public int leg = 6;
+    public string bodyColor;
     
 }

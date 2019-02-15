@@ -10,6 +10,7 @@ public class Feline : Animal {
     public bool longHair;
     public bool claw;
     public float agility;
+    public int leg;
     public string furColor;
     
 }

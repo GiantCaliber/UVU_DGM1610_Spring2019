@@ -5,7 +5,6 @@ using UnityEngine;
 public class Animal : MonoBehaviour {
     
     public int health;
-    public int leg;
     public int age;
     public float size;
     public float weight;

@@ -6,7 +6,6 @@ public class Tiger : Feline {
 
     public bool banded;
     
-    
 	// Use this for initialization
 	void Start () {
 		print("Grrrr!");
