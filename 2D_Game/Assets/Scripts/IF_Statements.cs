@@ -6,12 +6,52 @@ public class IF_Statements : MonoBehaviour {
     
     public string stopLight;
     public bool badDriver = true;
+    
     private int frameCount;
 
 	// Use this for initialization
 	void Start () {
 		frameCount = 0;
+        
+        int randomNumber;
+        bool randomSwitch;
+        randomNumber = Random.Range(0,2);
+        if ( randomNumber == 1 ) {
+            randomSwitch = true;
+        }
+        else {
+            randomSwitch = false;
+        }
+        randomNumber = Random.Range(1,10);
+        RandomMessage(randomNumber, randomSwitch);
 	}
+    
+    void RandomMessage(int number, bool alter) { // changes message based on random parameters
+        if ( number < 4 ) {
+            if ( alter ) {
+                print(number + " is a low roll");
+            }
+            else {
+                print("You got unlucky with " + number);
+            }
+        }
+        else if ( number < 7 && number > 3 ) {
+            if ( alter ) {
+                print(number + " is a mid roll");
+            }
+            else {
+                print("You got okay luck with " + number);
+            }
+        }
+        else {
+            if ( alter ) {
+                print(number + " is a high roll");
+            }
+            else {
+                print("You got lucky with " + number);
+            }
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -48,7 +88,8 @@ public class IF_Statements : MonoBehaviour {
             print("Between 1000 and 1999 frames");
         }
         else {
-            print("2000 frames and above");
+            print("2000 frames or above");
         }
+        
 	}
 }
