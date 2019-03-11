@@ -10,7 +10,7 @@ public class Function : MonoBehaviour {
         
 	}
 	
-    // does addition of two number by calling this function
+// does addition of two number by calling this function
 //    int Sum (int a, int b) {
 //        return a + b;
 //    }
