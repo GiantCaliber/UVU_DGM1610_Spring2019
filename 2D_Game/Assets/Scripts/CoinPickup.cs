@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinPickup : GenericPickup {
+public class CoinPickup : MonoBehaviour {
     
     public int coinValue;
     
