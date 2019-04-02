@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Kill : MonoBehaviour {
 
-    void OnTriggerEnter2D (Collider2D other) {
-        if (other.tag == "Player") {
-            Destroy(other);
+    public LevelManager levelManager;
+
+    void Start() {
+        // loading GameObject
+        levelManager = FindObjectOfType<LevelManager>();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "Player") {
+            levelManager.RespawnPlayer();
         }
     }
 }
