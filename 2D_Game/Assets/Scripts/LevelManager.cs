@@ -22,6 +22,9 @@ public class LevelManager : MonoBehaviour {
     // Store Gravity Value
     private float gravityStore;
 
+    // Health Bar
+    public HealthBar HP;
+
     // Use this for initialization
 	void Start () {
         pcRigid = GameObject.Find("Player").GetComponent<Rigidbody2D>();
@@ -58,6 +61,8 @@ public class LevelManager : MonoBehaviour {
         player.GetComponent<Renderer>().enabled = true;
         // Spawn Player
         Instantiate(respawnParticle, currentCheckPoint.transform.position, currentCheckPoint.transform.rotation);
+        // Reset HP Bar
+        HP.ResetHealth();
         
     }
 

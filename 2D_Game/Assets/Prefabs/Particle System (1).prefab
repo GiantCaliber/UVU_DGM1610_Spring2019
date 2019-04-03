@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4379410783633192}
   - component: {fileID: 198514527340484904}
   - component: {fileID: 199243514855414904}
+  - component: {fileID: 114380868637157298}
   m_Layer: 0
   m_Name: Particle System (1)
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 268.702, y: 0, z: 0}
+--- !u!114 &114380868637157298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478030331833868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971534c99da02104aa8d9933e47c31a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198514527340484904
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -289,7 +301,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -814,7 +826,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2

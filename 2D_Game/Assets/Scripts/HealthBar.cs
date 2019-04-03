@@ -12,10 +12,8 @@ public class HealthBar : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        // sets health to full on load
-        currentHealth = maxHealth;
-        // converts into slider value
-        healthBar.value = healthCalc();
+        // sets health to full and updates health bar on load
+        ResetHealth();
 
 	}
 	
@@ -26,13 +24,22 @@ public class HealthBar : MonoBehaviour {
     // Damage Calculator takes damage and converts it into slider adjustment
     public void DamageCalc(float damageValue) {
         currentHealth -= damageValue;
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0)
+        {
             currentHealth = 0;
+        }
+        else if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
         }
         healthBar.value = healthCalc();
         if (currentHealth == 0) {
             levelManager.RespawnPlayer();
         }
+    }
+
+    public void ResetHealth () {
+        currentHealth = maxHealth;
+        healthBar.value = healthCalc();
     }
 
     float healthCalc() { // calculates health percentage with the intent of 100% being 1.0
