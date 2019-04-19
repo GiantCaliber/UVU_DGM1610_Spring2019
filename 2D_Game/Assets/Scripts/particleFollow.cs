@@ -6,7 +6,7 @@ public class particleFollow : MonoBehaviour {
 
 	public Transform target;
     
-    void LateUpdate() {
+    void Update() {
         transform.position = target.position;
     }
 }

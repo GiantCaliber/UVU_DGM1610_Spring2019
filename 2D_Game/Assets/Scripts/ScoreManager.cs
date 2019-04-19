@@ -14,7 +14,6 @@ public class ScoreManager : MonoBehaviour {
 	void Start () {
         //Gets UI text component
 		scoreText = GetComponent<Text>();
-        
         score = 0;
 	}
 	
@@ -27,7 +26,6 @@ public class ScoreManager : MonoBehaviour {
 	}
     
     public static void AddPoints (int pointsToAdd) {
-        print("Coin Collected");
         score += pointsToAdd;
     }
     

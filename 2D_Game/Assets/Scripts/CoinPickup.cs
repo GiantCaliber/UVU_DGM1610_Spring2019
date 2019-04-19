@@ -9,6 +9,7 @@ public class CoinPickup : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag ==  "Player") {
             ScoreManager.AddPoints(coinValue);
+            coinManager.AddCoins();
             Destroy(gameObject);
         }
     }

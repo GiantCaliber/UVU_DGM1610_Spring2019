@@ -7,7 +7,10 @@ public class CharacterMove : MonoBehaviour {
     // player movement variables
     public float moveSpeed;
     public float jumpHeight;
-    private bool doubleJump;
+    public bool doubleJump;
+
+    // double jump powerup
+    private bool doubleJumpPower;
     
     // player grounded variables
     private bool grounded;
@@ -30,6 +33,7 @@ public class CharacterMove : MonoBehaviour {
         scale = transform.localScale;
         animator.SetBool("isWalking", false);
         animator.SetBool("isJumping", false);
+        doubleJumpPower = false;
     }
     
     void FixedUpdate () {
@@ -51,7 +55,8 @@ public class CharacterMove : MonoBehaviour {
             animator.SetBool("isJumping", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && !doubleJump && !grounded) {
+        // only works once the doubleJump powerup has been collected
+        if (Input.GetKeyDown(KeyCode.W) && !doubleJump && !grounded && doubleJumpPower ) {
             Jump();
             doubleJump = true;
         }
@@ -95,5 +100,9 @@ public class CharacterMove : MonoBehaviour {
     void Jump () {
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
         animator.SetBool("isJumping", true);
+    }
+
+    public void DoubleJumpOn () { // what turns on double jump
+        doubleJumpPower = true;
     }
 }
