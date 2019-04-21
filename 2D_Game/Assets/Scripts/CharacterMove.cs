@@ -26,6 +26,11 @@ public class CharacterMove : MonoBehaviour {
 
     // animator
     public Animator animator;
+
+    // animation collider variables
+    [SerializeField]
+    private PolygonCollider2D[] colliders;
+    private int colliderIndex = 0;
     
 	// Use this for initialization
 	void Start () {
@@ -105,4 +110,11 @@ public class CharacterMove : MonoBehaviour {
     public void DoubleJumpOn () { // what turns on double jump
         doubleJumpPower = true;
     }
+
+    public void SetColliderForSprite(int spriteNum) {
+        colliders[colliderIndex].enabled = false;
+        colliderIndex = spriteNum;
+        colliders[colliderIndex].enabled = true;
+    }
+
 }
