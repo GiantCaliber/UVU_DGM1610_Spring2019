@@ -27,11 +27,16 @@ public class CharacterMove : MonoBehaviour {
     // animator
     public Animator animator;
 
+    private bool framecheck;
+    private int frameNumber;
+
     // animation collider variables
+    /*
     [SerializeField]
     private PolygonCollider2D[] colliders;
     private int colliderIndex = 0;
-    
+    */
+
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -39,36 +44,41 @@ public class CharacterMove : MonoBehaviour {
         animator.SetBool("isWalking", false);
         animator.SetBool("isJumping", false);
         doubleJumpPower = false;
+        framecheck = false;
+        frameNumber = 0;
     }
     
     void FixedUpdate () {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        if (grounded)
+        {
+            doubleJump = false;
+            animator.SetBool("isJumping", false);
+            moveVelocity = 0f;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         // jump movement
-        if (Input.GetKeyDown(KeyCode.W) && grounded) { //jump
-            Jump();
-        }
-
         // double jump code
+        // non-stick player
 
-        if (grounded) {
-            doubleJump = false;
-            animator.SetBool("isJumping", false);
+        if (Input.GetKeyDown(KeyCode.W) && grounded)
+        { //jump
+            Jump();
+            animator.SetBool("isJumping", true);
         }
 
         // only works once the doubleJump powerup has been collected
         if (Input.GetKeyDown(KeyCode.W) && !doubleJump && !grounded && doubleJumpPower ) {
             Jump();
+            animator.SetBool("isJumping", true);
             doubleJump = true;
         }
 
-        // non-stick player
-        if (grounded) 
-            moveVelocity = 0f;
+        
 
         // x axis movement
         if (Input.GetKey(KeyCode.D)) { //right movement
@@ -91,12 +101,9 @@ public class CharacterMove : MonoBehaviour {
 
         GetComponent<Rigidbody2D>().velocity = new Vector2( moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
-
-
-        // player flip
-        //if (GetComponent<Rigidbody2D>().velocity.x > 0)
-
-        //else if (GetComponent<Rigidbody2D>().velocity.x < 0)
+        //player fall detection
+        //if rigidbody.velocity.y < 0
+            //animator plays fall animation
 
 
 
@@ -104,17 +111,19 @@ public class CharacterMove : MonoBehaviour {
     
     void Jump () {
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
-        animator.SetBool("isJumping", true);
     }
 
     public void DoubleJumpOn () { // what turns on double jump
         doubleJumpPower = true;
     }
 
+
+    /*
     public void SetColliderForSprite(int spriteNum) {
         colliders[colliderIndex].enabled = false;
         colliderIndex = spriteNum;
         colliders[colliderIndex].enabled = true;
     }
+    */
 
 }
