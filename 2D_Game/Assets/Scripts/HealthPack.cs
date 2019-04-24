@@ -9,6 +9,8 @@ public class HealthPack : MonoBehaviour {
 
     public HealthBar HP; // assign GameObject in inspecter to enable calling DamageCalc
 
+    public LevelManager LevelManager;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player") // if contact is made, take damage and enemy despawns
@@ -16,6 +18,7 @@ public class HealthPack : MonoBehaviour {
             HP.DamageCalc(-heal);
             Destroy(gameObject);
             ScoreManager.AddPoints(scoreRaise);
+            LevelManager.CheckPointUpdate(gameObject);
         }
     }
 }

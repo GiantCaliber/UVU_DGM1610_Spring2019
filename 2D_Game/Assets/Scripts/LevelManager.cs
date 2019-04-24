@@ -35,6 +35,10 @@ public class LevelManager : MonoBehaviour {
         StartCoroutine( "RespawnPlayerCo" );
     }
 
+    public void CheckPointUpdate(GameObject checkPoint) {
+        currentCheckPoint.transform.position = checkPoint.transform.position;
+    }
+
     public IEnumerator RespawnPlayerCo()
     {
         // Generate Death Particle
@@ -49,7 +53,7 @@ public class LevelManager : MonoBehaviour {
         // Point Penalty
         ScoreManager.AddPoints(-pointPenaltyOnDeath);
         // Debug Message
-        Debug.Log("Player Respawn");
+        // Debug.Log("Player Respawn");
         // Respawn Delay
         yield return new WaitForSeconds(respawnDelay);
         // Gravity Restore
