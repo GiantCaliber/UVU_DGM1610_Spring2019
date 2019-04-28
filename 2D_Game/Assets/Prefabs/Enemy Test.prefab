@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  HP: {fileID: 0}
+  HP: {fileID: 114173376627923676, guid: 0deedcca4f5f03140aac67a7c6af8562, type: 2}
 --- !u!114 &114910467592169388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,8 +520,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1895392561
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b4ce0bc0c1122124c903574b8ce8efc8, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
